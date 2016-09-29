@@ -1,4 +1,4 @@
-package Project;
+//Ryan Simpson
 
 public class Swimming {
 	
@@ -6,9 +6,8 @@ public class Swimming {
 	
 	private double MAX_TIME;
 	
-	public Swimming(double endTime, double MAX_TIME){
+	public Swimming(double endTime){
 		this.endTime = endTime;
-		this.MAX_TIME = MAX_TIME;
 	}
 
 	public double getEndTime() {
