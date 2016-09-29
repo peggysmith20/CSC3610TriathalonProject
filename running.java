@@ -1,4 +1,8 @@
-
+/*
+* Created By Peggy Smith
+* Each class should hold the time (use a double so you can hold fractions of a second). 
+* These classes should have static data members of 60 minutes.  This is the maximum time of any one event.
+*/
 
 public class running
 {
@@ -8,7 +12,7 @@ public class running
 
 	
 	
-	private double max_time;
+	private double MAX_TIME;
 
 	
 	public running(){
