@@ -1,3 +1,8 @@
+Peggy Smith 
+
+
+
+
 public class running
 {
 	
@@ -6,7 +11,7 @@ public class running
 
 	
 	
-	private double max_time;
+	private double MAX_TIME;
 
 	
 	public running(){
@@ -15,22 +20,27 @@ public class running
 
 	
 	public running(double endTime) {
+	this.endTime = endTime;
 		
 	}
 
 	public void setEndTime(double endTime) {
+	this.endTime = endTime;
 		
 	}
 
 	
 	public double getEndTime() {
 		
-		return 0.0;
+		return endTime;
 	}
 
 	
 	
 	public boolean exceedsMaxTime(double endTime) {
+		if (endTime > 60) return true;
+		
+		else
 		
 		return false;
 	}
