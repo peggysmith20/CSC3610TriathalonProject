@@ -1,26 +1,29 @@
 //Ryan Simpson
+//edited by Carl Goshert on 30th Sept 2016
 
 public class Swimming {
 	
-	private double endTime;
+	private long endTime;
 	
-	private double MAX_TIME;
+	private static final long MAX_TIME = 3600;
 	
-	public Swimming(double endTime){
+	public Swimming(long endTime){
 		this.endTime = endTime;
 	}
 
-	public double getEndTime() {
-		return endTime;
+	public long getEndTime() {
+		return this.endTime;
 	}
 
-	public void setEndTime(double endTime) {
+	public void setEndTime(long endTime) {
 		this.endTime = endTime;
 	}
 	
-	public boolean exceedsMaxTime(double endTime){
-		if (endTime > 60) return true;
-		
-		else return false;
+	public boolean exceedsMaxTime(long endTime){
+        if (endTime > MAX_TIME){
+            return true;
+        }else{
+            return false;
+        }
 	}
 }
