@@ -1,3 +1,5 @@
+package Project;
+
 /* Created by carl on 9/27/16.
  */
 public class Athlete {
@@ -15,8 +17,19 @@ public class Athlete {
         this.participantID = participantID;
     }
 
-    public void setName(String firstName, String lastName) {
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -26,10 +39,6 @@ public class Athlete {
 
     public void setParticipantID(String participantID) {
         this.participantID = participantID;
-    }
-
-    public String getName() {
-        return(this.firstName + this.lastName);
     }
 
     public String getGender() {
