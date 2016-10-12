@@ -1,5 +1,3 @@
-package Project;
-
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,13 +5,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class Mainclass extends Application {
+public class MainFXClass extends Application {
 	private AnchorPane rootLayout;
 
 	@Override
 	public void start(Stage primaryStage) {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Mainclass.class.getResource("AnchorPane.fxml"));
+		loader.setLocation(MainFXClass.class.getResource("AnchorPane.fxml"));
 		try {
 			rootLayout = loader.load();
 		} catch (IOException ex) {

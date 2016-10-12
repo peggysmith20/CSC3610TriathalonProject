@@ -1,7 +1,5 @@
 //created by PEggy Smith on 28th Sept 2016
 //edited by Carl Goshert on 30th Sept 2016
-
-
 public class Running
 {
 	
