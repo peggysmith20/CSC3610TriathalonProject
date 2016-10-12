@@ -1,5 +1,3 @@
-package Project;
-
 /* Created by carl on 9/27/16.
  */
 public class Athlete {

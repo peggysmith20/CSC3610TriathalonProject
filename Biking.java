@@ -1,6 +1,5 @@
 //created by Ryan Simpson on 28th Sept 2016
 //edited by Carl Goshert on 30th Sept 2016
-
 public class Biking {
 
 	private long endTime;

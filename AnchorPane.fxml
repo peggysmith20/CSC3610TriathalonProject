@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="720.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="720.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
    <children>
       <Pane layoutY="-1.0" prefHeight="540.0" prefWidth="720.0">
          <children>
@@ -20,7 +18,7 @@
             <Label fx:id="lblSwimTime" layoutX="412.0" layoutY="209.0" text="Swim Time" />
             <Label fx:id="lblBikeTime" layoutX="411.0" layoutY="157.0" text="Bike Time" />
             <Label fx:id="lblRunTime" layoutX="412.0" layoutY="103.0" text="Run Time" />
-            <Label fx:id="lblAthleteNumber" layoutX="28.0" layoutY="252.0" prefHeight="35.0" prefWidth="87.0" text="Athlete Number" />
+            <Label fx:id="lblAthleteNumber" layoutX="28.0" layoutY="252.0" prefHeight="35.0" prefWidth="88.0" text="Athlete Number" />
             <Label fx:id="lblGender" layoutX="33.0" layoutY="209.0" text="Gender" />
             <Label fx:id="lblLastName" layoutX="33.0" layoutY="157.0" text="Last Name" />
             <Label fx:id="lblFirstName" layoutX="33.0" layoutY="103.0" text="First Name" />
@@ -31,13 +29,13 @@
             <TextField fx:id="txtFirstName" layoutX="119.0" layoutY="99.0" />
             <TextField fx:id="txtNumber" layoutX="119.0" layoutY="257.0" />
             <TextField fx:id="txtLastName" layoutX="119.0" layoutY="153.0" />
-            <Button fx:id="btnCalculate" alignment="TOP_RIGHT" layoutX="578.0" layoutY="493.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" snapToPixel="false" text="Calculate" />
-            <Button fx:id="btnSubmit" alignment="TOP_RIGHT" layoutX="519.0" layoutY="269.0" mnemonicParsing="false" snapToPixel="false" text="Submit Information" />
+            <Button fx:id="btnCalculate" alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="573.0" layoutY="493.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" snapToPixel="false" text="Calculate" />
+            <Button fx:id="btnSubmit" alignment="TOP_RIGHT" layoutX="519.0" layoutY="269.0" mnemonicParsing="false" onAction="#initialize" snapToPixel="false" text="Submit Information" />
             <MenuBar fx:id="menuMain" layoutX="-1.0" layoutY="2.0" prefHeight="25.0" prefWidth="720.0">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem fx:id="mnitmClose" mnemonicParsing="false" onAction="#initialize" text="Close" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -52,6 +50,12 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <Label fx:id="lblErrRun" layoutX="535.0" layoutY="124.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
+            <Label fx:id="lblErrBike" layoutX="536.0" layoutY="181.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
+            <Label fx:id="lblErrSwim" layoutX="540.0" layoutY="232.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
+            <Label fx:id="lblErrFName" layoutX="133.0" layoutY="124.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
+            <Label fx:id="lblErrLName" layoutX="133.0" layoutY="181.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
+            <Label fx:id="lblErrGender" layoutX="133.0" layoutY="232.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
          </children></Pane>
    </children>
 </AnchorPane>

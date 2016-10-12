@@ -1,6 +1,5 @@
 //Ryan Simpson
 //edited by Carl Goshert on 30th Sept 2016
-
 public class Swimming {
 	
 	private long endTime;
