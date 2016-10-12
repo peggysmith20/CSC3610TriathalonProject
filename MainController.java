@@ -1,20 +1,13 @@
-package Project;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.util.LinkedHashSet;
 
-public class Controller {
+public class MainController {
 	@FXML
 	private Label lblAthleteInformation;
 	@FXML
@@ -58,9 +51,9 @@ public class Controller {
 	@FXML
 	private TextArea txtaResults;
 	@FXML
-	private TextArea txtaMaleResults;
+	private TableView tblMaleResults;
 	@FXML
-	private TextArea txtaFemaleResults;
+	private TableView tblFemaleResults;
 	@FXML
 	private Button btnSubmit;
 	@FXML
@@ -77,8 +70,18 @@ public class Controller {
 	private Label lblErrBike;
 	@FXML
 	private Label lblErrGender;
+	@FXML
+	private MenuItem mnitmClose;
 
 	public void initialize(){
+		//set red error text to invisible
+		lblErrBike.setVisible(false);
+		lblErrFName.setVisible(false);
+		lblErrLName.setVisible(false);
+		lblErrGender.setVisible(false);
+		lblErrRun.setVisible(false);
+		lblErrSwim.setVisible(false);
+
 		//event handler. activates when btnSubmit is clicked. it takes the input data, creates objects, puts the objects in a set, and sends them to the database
 	    btnSubmit.setOnAction(e -> { //lambda expression simplifies coding
 	    	//create objects
@@ -89,14 +92,13 @@ public class Controller {
 			//validate objects again before storing in set
 			validateObjects(athleteInfo, runTime, swimTime, bikeTime);
 		});
-	    
-	    
-	    
+
+		//button launches popup window with race results
 	    btnCalculate.setOnAction(e ->{
 	    	try{
 	    		FXMLLoader loader = new FXMLLoader();
 	    		loader.setLocation(getClass().getResource("DisplayData.fxml"));
-	    		AnchorPane rootLayout = (AnchorPane) loader.load();
+	    		AnchorPane rootLayout = (AnchorPane)loader.load();
 				Scene scene = new Scene(rootLayout);
 				Stage primaryStage = new Stage();
 				primaryStage.setScene(scene);
@@ -107,7 +109,13 @@ public class Controller {
 	    	}
 
 	    });
+
+		//closes application when pressed
+		mnitmClose.setOnAction(e -> {
+			System.exit(0);
+		});
 	}
+
 	//method makes sure that objects are ready to be added to the set
 	private void validateObjects(Athlete athleteInfo, Running runTime, Swimming swimTime, Biking bikeTime){
 		if (!(athleteInfo.getFirstName().matches("badjuju")) && runTime.getEndTime() > 0 && swimTime.getEndTime() > 0 && bikeTime.getEndTime() > 0){
