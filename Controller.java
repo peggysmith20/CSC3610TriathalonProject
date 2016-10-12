@@ -1,11 +1,17 @@
 package Project;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 import java.util.LinkedHashSet;
 
 public class Controller {
@@ -26,6 +32,14 @@ public class Controller {
 	@FXML
 	private Label lblSwimTime;
 	@FXML
+	private Label lblResults;
+	@FXML
+	private Label lblMaleResult;
+	@FXML
+	private Label lblFemaleResult;
+	@FXML
+	private MenuBar menuMain;
+	@FXML
 	private TextField txtFirstName;
 	@FXML
 	private TextField txtLastName;
@@ -43,6 +57,10 @@ public class Controller {
 	private RadioButton rbFemale;
 	@FXML
 	private TextArea txtaResults;
+	@FXML
+	private TextArea txtaMaleResults;
+	@FXML
+	private TextArea txtaFemaleResults;
 	@FXML
 	private Button btnSubmit;
 	@FXML
@@ -71,6 +89,24 @@ public class Controller {
 			//validate objects again before storing in set
 			validateObjects(athleteInfo, runTime, swimTime, bikeTime);
 		});
+	    
+	    
+	    
+	    btnCalculate.setOnAction(e ->{
+	    	try{
+	    		FXMLLoader loader = new FXMLLoader();
+	    		loader.setLocation(getClass().getResource("DisplayData.fxml"));
+	    		AnchorPane rootLayout = (AnchorPane) loader.load();
+				Scene scene = new Scene(rootLayout);
+				Stage primaryStage = new Stage();
+				primaryStage.setScene(scene);
+				primaryStage.show();
+
+	    	} catch(Exception ex){
+	    		ex.printStackTrace();
+	    	}
+
+	    });
 	}
 	//method makes sure that objects are ready to be added to the set
 	private void validateObjects(Athlete athleteInfo, Running runTime, Swimming swimTime, Biking bikeTime){

@@ -6,39 +6,52 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="971.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="720.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.Controller">
    <children>
-      <Pane prefHeight="500.0" prefWidth="400.0">
+      <Pane layoutY="-1.0" prefHeight="540.0" prefWidth="720.0">
          <children>
-            <RadioButton fx:id="rbFemale" layoutX="393.0" layoutY="392.0" mnemonicParsing="false" text="Female">
+            <RadioButton fx:id="rbFemale" layoutX="209.0" layoutY="209.0" mnemonicParsing="false" text="Female">
                <toggleGroup>
                   <ToggleGroup fx:id="Gender" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rbMale" layoutX="258.0" layoutY="392.0" mnemonicParsing="false" text="Male" toggleGroup="$Gender" />
-            <TextArea fx:id="txtaResults" layoutX="99.0" layoutY="627.0" prefHeight="242.0" prefWidth="954.0" promptText="Results will be displayed here when you press calculate." />
-            <Label fx:id="lblSwimTime" layoutX="584.0" layoutY="392.0" text="Swim Time" />
-            <Label fx:id="lblBikeTime" layoutX="584.0" layoutY="250.0" text="Bike Time" />
-            <Label fx:id="lblRunTime" layoutX="578.0" layoutY="119.0" text="Run Time" />
-            <Label fx:id="lblAthleteNumber" layoutX="53.0" layoutY="527.0" prefHeight="35.0" prefWidth="173.0" text="Athlete Number" />
-            <Label fx:id="lblGender" layoutX="66.0" layoutY="392.0" text="Gender" />
-            <Label fx:id="lblLastName" layoutX="64.0" layoutY="255.0" text="Last Name" />
-            <Label fx:id="lblFirstName" layoutX="66.0" layoutY="120.0" text="First Name" />
-            <Label fx:id="lblAthleteInformation" layoutX="452.0" layoutY="42.0" text="Athlete Information" />
-            <TextField fx:id="txtRunTime" layoutX="745.0" layoutY="111.0" />
-            <TextField fx:id="txtBikeTime" layoutX="745.0" layoutY="242.0" />
-            <TextField fx:id="txtSwimTime" layoutX="745.0" layoutY="384.0" />
-            <TextField fx:id="txtFirstName" layoutX="258.0" layoutY="111.0" />
-            <TextField fx:id="txtNumber" layoutX="258.0" layoutY="519.0" />
-            <TextField fx:id="txtLastName" layoutX="258.0" layoutY="250.0" />
-            <Button fx:id="btnCalculate" alignment="TOP_RIGHT" layoutX="894.0" layoutY="893.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="134.0" text="Calculate" />
-            <Button fx:id="btnSubmit" alignment="TOP_RIGHT" layoutX="745.0" layoutY="518.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="238.0" text="Submit Information" />
-            <Label fx:id="lblErrFName" layoutX="122.0" layoutY="165.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="false" />
-            <Label fx:id="lblErrLName" layoutX="114.0" layoutY="300.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="false" />
-            <Label fx:id="lblErrGender" layoutX="114.0" layoutY="419.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="false" />
+            <RadioButton fx:id="rbMale" layoutX="119.0" layoutY="209.0" mnemonicParsing="false" text="Male" toggleGroup="$Gender" />
+            <TextArea fx:id="txtaResults" editable="false" layoutX="28.0" layoutY="308.0" prefHeight="169.0" prefWidth="637.0" promptText="Results will be displayed here when you press calculate." />
+            <Label fx:id="lblSwimTime" layoutX="412.0" layoutY="209.0" text="Swim Time" />
+            <Label fx:id="lblBikeTime" layoutX="411.0" layoutY="157.0" text="Bike Time" />
+            <Label fx:id="lblRunTime" layoutX="412.0" layoutY="103.0" text="Run Time" />
+            <Label fx:id="lblAthleteNumber" layoutX="28.0" layoutY="252.0" prefHeight="35.0" prefWidth="87.0" text="Athlete Number" />
+            <Label fx:id="lblGender" layoutX="33.0" layoutY="209.0" text="Gender" />
+            <Label fx:id="lblLastName" layoutX="33.0" layoutY="157.0" text="Last Name" />
+            <Label fx:id="lblFirstName" layoutX="33.0" layoutY="103.0" text="First Name" />
+            <Label fx:id="lblAthleteInformation" layoutX="268.0" layoutY="43.0" text="Athlete Information" />
+            <TextField fx:id="txtRunTime" layoutX="519.0" layoutY="99.0" />
+            <TextField fx:id="txtBikeTime" layoutX="519.0" layoutY="153.0" />
+            <TextField fx:id="txtSwimTime" layoutX="519.0" layoutY="205.0" />
+            <TextField fx:id="txtFirstName" layoutX="119.0" layoutY="99.0" />
+            <TextField fx:id="txtNumber" layoutX="119.0" layoutY="257.0" />
+            <TextField fx:id="txtLastName" layoutX="119.0" layoutY="153.0" />
+            <Button fx:id="btnCalculate" alignment="TOP_RIGHT" layoutX="578.0" layoutY="493.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" snapToPixel="false" text="Calculate" />
+            <Button fx:id="btnSubmit" alignment="TOP_RIGHT" layoutX="519.0" layoutY="269.0" mnemonicParsing="false" snapToPixel="false" text="Submit Information" />
+            <MenuBar fx:id="menuMain" layoutX="-1.0" layoutY="2.0" prefHeight="25.0" prefWidth="720.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children></Pane>
-      <Label fx:id="lblErrRun" layoutX="605.0" layoutY="150.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="false" />
-      <Label fx:id="lblErrBike" layoutX="605.0" layoutY="293.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="false" />
-      <Label fx:id="lblErrSwim" layoutX="614.0" layoutY="433.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="false" />
    </children>
 </AnchorPane>
