@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="554.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lblMaleResult" layoutX="116.0" layoutY="54.0" text="Male" />
+      <Label fx:id="lblResults" layoutX="244.0" layoutY="14.0" text="Results">
+         <font>
+            <Font name="Broadway" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFemaleResult" layoutX="399.0" layoutY="54.0" text="Female" />
+      <TextArea fx:id="txtaMaleResults" editable="false" layoutX="29.0" layoutY="78.0" prefHeight="429.0" prefWidth="200.0" />
+      <TextArea fx:id="txtaFemaleResults" editable="false" layoutX="318.0" layoutY="79.0" prefHeight="429.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
