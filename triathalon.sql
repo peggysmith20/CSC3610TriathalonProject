@@ -24,7 +24,8 @@ DROP TABLE IF EXISTS `participants`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `participants` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
+  `firstname` varchar(20) DEFAULT NULL,
+  `lastname` varchar(20) DEFAULT NULL,
   `gender` varchar(6) DEFAULT NULL,
   `runtime` int(11) DEFAULT NULL,
   `swimtime` int(11) DEFAULT NULL,
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-04 18:41:12
+-- Dump completed on 2016-10-18 11:13:41
