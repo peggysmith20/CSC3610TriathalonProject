@@ -1,0 +1,43 @@
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class JDBC_TRIATHALON {
+
+	private Athlete athlete;
+	private Running runTime;
+	private Swimming swimTime;
+	private Biking bikeTime;
+
+	public JDBC_TRIATHALON(Athlete athlete, Running runTime, Swimming swimTime, Biking bikeTime) {
+		this.athlete = athlete;
+		this.runTime = runTime;
+		this.swimTime = swimTime;
+		this.bikeTime = bikeTime;
+	}
+
+	public void pullTuple() {
+
+		Statement stmt = null;
+		ResultSet resultSet = null;
+
+		this.attribute = new Attribute(resultSet.getMetaData());
+
+	}
+
+	public Athlete getAthlete() {
+		return athlete;
+	}
+
+	public Running getRunTime() {
+		return runTime;
+	}
+
+	public Swimming getSwimTime() {
+		return swimTime;
+	}
+
+	public Biking getBikeTime() {
+		return bikeTime;
+	}
+
+}
