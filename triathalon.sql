@@ -23,13 +23,13 @@ DROP TABLE IF EXISTS `participants`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `participants` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(20) DEFAULT NULL,
-  `lastname` varchar(20) DEFAULT NULL,
+  `firstName` varchar(20) DEFAULT NULL,
+  `lastName` varchar(20) DEFAULT NULL,
   `gender` varchar(6) DEFAULT NULL,
-  `runtime` int(11) DEFAULT NULL,
-  `swimtime` int(11) DEFAULT NULL,
-  `biketime` int(11) DEFAULT NULL,
+  `id` varchar(10) NOT NULL,
+  `runTime` int(20) DEFAULT NULL,
+  `swimTime` int(20) DEFAULT NULL,
+  `bikeTime` int(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-18 11:13:41
+-- Dump completed on 2016-11-01 13:04:31
