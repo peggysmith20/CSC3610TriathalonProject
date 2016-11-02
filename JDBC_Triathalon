@@ -15,7 +15,7 @@ public class JDBC_TRIATHALON {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection connection = DriverManager.getConnection("jdbcLmysql://localhost/triathalon", "root", "mysqlpwd");
 		Statement stmt = connection.createStatement();
-		ResultSet resultSet = stmt.executeQuery("select id, firstname, lastname, gender, runtime, swimtime, biketime from participants");
+		ResultSet resultSet = stmt.executeQuery("select firstname, lastname, gender, id, runtime, swimtime, biketime from participants");
 		this.athlete = new Athlete(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3),resultSet.getString(4));
 		this.runTime = new Running( resultSet.getInt(5));
 		this.swimTime = new Swimming( resultSet.getInt(6));
