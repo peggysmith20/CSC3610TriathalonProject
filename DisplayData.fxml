@@ -6,28 +6,33 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="554.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="554.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DisplayDataController">
    <children>
-      <Label fx:id="lblMaleResult" layoutX="116.0" layoutY="54.0" text="Male" />
+      <Label fx:id="lblMaleResult" layoutX="263.0" layoutY="54.0" text="Male" />
       <Label fx:id="lblResults" layoutX="244.0" layoutY="14.0" text="Results">
          <font>
             <Font name="Broadway" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblFemaleResult" layoutX="399.0" layoutY="54.0" text="Female" />
-      <TableView layoutX="32.0" layoutY="95.0" prefHeight="432.0" prefWidth="226.0">
+      <Label fx:id="lblFemaleResult" layoutX="255.0" layoutY="290.0" text="Female" />
+      <TableView fx:id="tblvwMale" layoutX="32.0" layoutY="95.0" prefHeight="146.0" prefWidth="503.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Name" />
-          <TableColumn prefWidth="75.0" text="ID" />
-            <TableColumn prefWidth="75.0" text="Time" />
+          <TableColumn fx:id="tblclmMaleName" prefWidth="127.0" text="Last Name" />
+            <TableColumn minWidth="0.0" prefWidth="111.0" text="First Name" />
+            <TableColumn prefWidth="84.0" text="Gender" />
+          <TableColumn fx:id="tblclmMaleID" prefWidth="74.0" text="ID #" />
+            <TableColumn fx:id="tblclmMaleTime" minWidth="0.0" prefWidth="106.0" text="Time" />
         </columns>
       </TableView>
-      <TableView layoutX="310.0" layoutY="95.0" prefHeight="432.0" prefWidth="226.0">
+      <TableView fx:id="tblvwFemale" layoutX="28.0" layoutY="341.0" prefHeight="146.0" prefWidth="503.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Name" />
-            <TableColumn prefWidth="75.0" text="ID" />
-            <TableColumn prefWidth="75.0" text="Time" />
+            <TableColumn fx:id="tblclmMaleName1" prefWidth="127.0" text="Last Name" />
+            <TableColumn minWidth="0.0" prefWidth="111.0" text="First Name" />
+            <TableColumn prefWidth="84.0" text="Gender" />
+            <TableColumn fx:id="tblclmMaleID1" prefWidth="74.0" text="ID #" />
+            <TableColumn fx:id="tblclmMaleTime1" minWidth="0.0" prefWidth="106.0" text="Time" />
          </columns>
       </TableView>
+      <Button fx:id="btnShow" layoutX="448.0" layoutY="23.0" mnemonicParsing="false" onAction="#initialize" text="Show" />
    </children>
 </AnchorPane>

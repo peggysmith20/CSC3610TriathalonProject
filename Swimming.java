@@ -18,8 +18,8 @@ public class Swimming {
 		this.endTime = endTime;
 	}
 	
-	public boolean exceedsMaxTime(long endTime){
-        if (endTime > MAX_TIME){
+	public boolean exceedsMaxTime(){
+        if (this.endTime > MAX_TIME){
             return true;
         }else{
             return false;
