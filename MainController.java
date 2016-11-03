@@ -4,7 +4,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.util.LinkedHashSet;
 
 public class MainController {
@@ -24,12 +23,6 @@ public class MainController {
 	private Label lblBikeTime;
 	@FXML
 	private Label lblSwimTime;
-	@FXML
-	private Label lblResults;
-	@FXML
-	private Label lblMaleResult;
-	@FXML
-	private Label lblFemaleResult;
 	@FXML
 	private MenuBar menuMain;
 	@FXML
@@ -94,7 +87,7 @@ public class MainController {
 		});
 
 		//button launches popup window with race results
-	    btnCalculate.setOnAction(e ->{
+	    btnCalculate.setOnAction(e -> { //lambda expression simplifies coding
 	    	try{
 	    		FXMLLoader loader = new FXMLLoader();
 	    		loader.setLocation(getClass().getResource("DisplayData.fxml"));
@@ -103,11 +96,9 @@ public class MainController {
 				Stage primaryStage = new Stage();
 				primaryStage.setScene(scene);
 				primaryStage.show();
-
 	    	} catch(Exception ex){
 	    		ex.printStackTrace();
 	    	}
-
 	    });
 
 		//closes application when pressed
@@ -125,9 +116,9 @@ public class MainController {
 			for (Object element : currentAthlete){
 				System.out.println(element.toString());
 			}
+			//if the objects are ready, they are stored then sent to the database
+			sendData(currentAthlete);
 		}
-		//if the objects are ready, they are stored then sent to the database
-		/*sendData(currentAthlete);*/
 	}
 
 	//method observes the radio buttons to determine the athlete's gender
@@ -136,9 +127,9 @@ public class MainController {
 		lblErrGender.setVisible(false);
 		try{
 			if (rbMale.isSelected()){
-				response = rbMale.getText(); //returns "Male"
+				response = "male"; //returns "Male"
 			} else if (rbFemale.isSelected()){
-				response = rbFemale.getText(); //returns "Female"
+				response = "female"; //returns "Female"
 			}else {
 				throw new Exception();
 			}
@@ -155,7 +146,7 @@ public class MainController {
 		if((! txtFirstName.getText().matches(".*[^A-Za-z].*")) && (! txtLastName.getText().matches(".*[^A-Za-z].*"))){
 			return new Athlete(txtFirstName.getText(), txtLastName.getText(), storeGender(), txtNumber.getText());
 		}else{
-			//display red error text
+			//displays red error text
             if(txtFirstName.getText().matches(".*[^A-Za-z].*")){
                 displayError(1);
 			}
@@ -172,7 +163,7 @@ public class MainController {
 		if ((! txtRunTime.getText().matches(".*[^0-9].*")) && Long.parseLong(txtRunTime.getText()) > 0) {
 			return new Running(Long.parseLong(txtRunTime.getText()));
 		}else{
-			//display red error text
+			//displays red error text
             displayError(3);
 			return new Running(-1);
 		}
@@ -182,7 +173,7 @@ public class MainController {
 		if((! txtSwimTime.getText().matches(".*[^0-9].*")) && Long.parseLong(txtSwimTime.getText()) > 0){
 			return new Swimming(Long.parseLong(txtSwimTime.getText()));
 		}else{
-			//display red error text
+			//displays red error text
 			displayError(4);
 			return new Swimming(-1);
 		}
@@ -192,7 +183,7 @@ public class MainController {
 		if ((! txtBikeTime.getText().matches(".*[^0-9].*")) && Long.parseLong(txtBikeTime.getText()) > 0){
 			return new Biking(Long.parseLong(txtBikeTime.getText()));
 		}else{
-			//display red error text
+			//displays red error text
 			displayError(5);
 			return new Biking(-1);
 		}
@@ -208,7 +199,7 @@ public class MainController {
 		return currentAthlete;
 	}
 
-	//method to display red error text
+	//method to displays red error text
 		//errCode = 1: athlete first name is invalid
 		//errCode = 2: athlete last name is invalid
 		//errCode = 3: running time is invalid
@@ -239,7 +230,18 @@ public class MainController {
 	}
 
 	//method to send data to the mysql database
-	/*private void sendData(LinkedHashSet currentAthlete){
-
-	}*/
+	private void sendData(LinkedHashSet currentAthlete){
+		//create jdbc object
+		try {
+			JDBCTriathalon jdbcObject = new JDBCTriathalon();
+			Athlete athlete = (Athlete)currentAthlete.toArray()[0];
+			Running runTime = (Running)currentAthlete.toArray()[1];
+			Swimming swimTime = (Swimming)currentAthlete.toArray()[2];
+			Biking bikeTime = (Biking)currentAthlete.toArray()[3];
+			jdbcObject.pushTuple(athlete.getFirstName(), athlete.getLastName(), athlete.getGender(), athlete.getParticipantID(), runTime.getEndTime(), swimTime.getEndTime(), bikeTime.getEndTime());
+		}
+		catch (Exception ex){
+			ex.printStackTrace();
+		}
+	}
 }

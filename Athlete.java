@@ -6,6 +6,7 @@ public class Athlete {
     private String lastName;
     private String gender;
     private String participantID;
+    private Long totalTime;
 
     //operators
     public Athlete(String firstName, String lastName, String gender, String participantID) {
@@ -46,7 +47,15 @@ public class Athlete {
     public String getParticipantID() {
         return participantID;
     }
-
+    
+    public Long getTotalTime() {
+        return totalTime;
+    }
+    
+    public void setTotalTime(Long totalTime) {
+        this.totalTime = totalTime;
+    }
+    
     @Override
     public String toString() {
         return "Athlete{" +
@@ -54,6 +63,7 @@ public class Athlete {
                 ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", participantID='" + participantID + '\'' +
+                ", totalTime=" + totalTime +
                 '}';
     }
 }

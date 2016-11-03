@@ -18,8 +18,8 @@ public class Biking {
 		this.endTime = endTime;
 	}
 	
-	public boolean exceedsMaxTime(long endTime){
-		if (endTime > 60){
+	public boolean exceedsMaxTime(){
+		if (this.endTime > MAX_TIME){
             return true;
         }else{
             return false;
