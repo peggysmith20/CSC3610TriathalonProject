@@ -1,8 +1,12 @@
+package Project;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -14,6 +18,10 @@ public class DisplayDataController {
 	private TableView<Athlete> tblvwFemale;
 	@FXML
 	private Button btnShow;
+	@FXML 
+	private Button btnSearch;
+	@FXML
+	private TextField txtSearchResults;
 	
 	public void initialize(){
 		btnShow.setOnAction(e -> {

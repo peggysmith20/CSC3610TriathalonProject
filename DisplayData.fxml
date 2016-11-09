@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="554.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DisplayDataController">
+<AnchorPane prefHeight="395.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.DisplayDataController">
    <children>
-      <Label fx:id="lblMaleResult" layoutX="263.0" layoutY="54.0" text="Male" />
-      <Label fx:id="lblResults" layoutX="244.0" layoutY="14.0" text="Results">
+      <Label fx:id="lblMaleResult" layoutX="264.0" layoutY="76.0" text="Male" />
+      <Label fx:id="lblResults" layoutX="513.0" layoutY="14.0" text="Results">
          <font>
             <Font name="Broadway" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblFemaleResult" layoutX="255.0" layoutY="290.0" text="Female" />
-      <TableView fx:id="tblvwMale" layoutX="32.0" layoutY="95.0" prefHeight="146.0" prefWidth="503.0">
+      <Label fx:id="lblFemaleResult" layoutX="773.0" layoutY="76.0" text="Female" />
+      <TableView fx:id="tblvwMale" layoutX="26.0" layoutY="103.0" prefHeight="146.0" prefWidth="503.0">
         <columns>
           <TableColumn fx:id="tblclmMaleName" prefWidth="127.0" text="Last Name" />
             <TableColumn minWidth="0.0" prefWidth="111.0" text="First Name" />
@@ -24,7 +24,7 @@
             <TableColumn fx:id="tblclmMaleTime" minWidth="0.0" prefWidth="106.0" text="Time" />
         </columns>
       </TableView>
-      <TableView fx:id="tblvwFemale" layoutX="28.0" layoutY="341.0" prefHeight="146.0" prefWidth="503.0">
+      <TableView fx:id="tblvwFemale" layoutX="548.0" layoutY="103.0" prefHeight="146.0" prefWidth="503.0">
          <columns>
             <TableColumn fx:id="tblclmMaleName1" prefWidth="127.0" text="Last Name" />
             <TableColumn minWidth="0.0" prefWidth="111.0" text="First Name" />
@@ -33,6 +33,8 @@
             <TableColumn fx:id="tblclmMaleTime1" minWidth="0.0" prefWidth="106.0" text="Time" />
          </columns>
       </TableView>
-      <Button fx:id="btnShow" layoutX="448.0" layoutY="23.0" mnemonicParsing="false" onAction="#initialize" text="Show" />
+      <Button fx:id="btnShow" layoutX="868.0" layoutY="275.0" mnemonicParsing="false" onAction="#initialize" text="Show" />
+      <TextField fx:id="txtSearchResults" layoutX="439.0" layoutY="287.0" prefHeight="66.0" prefWidth="180.0" promptText="Seach Results" />
+      <Button fx:id="btnSearch" layoutX="567.0" layoutY="353.0" mnemonicParsing="false" text="Search" />
    </children>
 </AnchorPane>

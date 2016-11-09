@@ -1,3 +1,5 @@
+package Project;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -41,8 +43,6 @@ public class MainController {
 	private RadioButton rbMale;
 	@FXML
 	private RadioButton rbFemale;
-	@FXML
-	private TextArea txtaResults;
 	@FXML
 	private TableView tblMaleResults;
 	@FXML
