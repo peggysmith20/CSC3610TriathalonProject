@@ -2,7 +2,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -13,7 +16,30 @@ public class DisplayDataController {
 	@FXML
 	private TableView<Athlete> tblvwFemale;
 	@FXML
+	private TableColumn<Athlete, String> numberMale;
+	@FXML
+	private TableColumn<Athlete, String> FirstNameMale;
+	@FXML
+	private TableColumn<Athlete, String> LastNameMale;
+	@FXML
+	private TableColumn<Athlete, String> genderMale;
+	@FXML
+	private TableColumn<Athlete, String> totalTimeMale;
+
+    @FXML
+	private TableColumn<Athlete, String> numberFemale;
+	@FXML
+	private TableColumn<Athlete, String> FirstNameFemale;
+	@FXML
+	private TableColumn<Athlete, String> LastNameFemale;
+	@FXML
+	private TableColumn<Athlete, String> genderFemale;
+	@FXML
+	private TableColumn<Athlete, String> totalTimeFemale;
+	
+	@FXML
 	private Button btnShow;
+
 	
 	public void initialize(){
 		btnShow.setOnAction(e -> {
@@ -63,7 +89,7 @@ public class DisplayDataController {
 		}
 	}
 	
-	private void displayQueue(Queue<Athlete> athleteQueue, TableView<Athlete> tableView){
+	private void displayQueue(Queue<Athlete> athleteQueue, TableView<Athlete> tableView) throws IOException{
 		//sends all the athletes to the GUI table
 		ObservableList<Athlete> athletes = FXCollections.observableArrayList();
 		for (int counter = 0; counter < athletes.size(); counter++){
@@ -73,6 +99,20 @@ public class DisplayDataController {
 		//////////////////////
 		//set cell value / property stuff to fix the issue of data not posting to the tableView
 		//////////////////////
+		
+		numberMale.setCellValueFactory(new PropertyValueFactory<>("ID #"));
+		FirstNameMale.setCellValueFactory(new PropertyValueFactory<>("First Name"));
+		LastNameMale.setCellValueFactory(new PropertyValueFactory<>("Last Name"));
+		genderMale.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+		totalTimeMale.setCellValueFactory(new PropertyValueFactory<>("Time"));
+		
+		numberFemale.setCellValueFactory(new PropertyValueFactory<>("ID #"));
+		FirstNameFemale.setCellValueFactory(new PropertyValueFactory<>("First Name"));
+		LastNameFemale.setCellValueFactory(new PropertyValueFactory<>("Last Name"));
+		genderFemale.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+		totalTimeFemale.setCellValueFactory(new PropertyValueFactory<>("Time"));
+		
+		
 		tableView.setItems(athletes);
 	}
 }

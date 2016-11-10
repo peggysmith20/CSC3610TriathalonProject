@@ -17,20 +17,20 @@
       <Label fx:id="lblFemaleResult" layoutX="255.0" layoutY="290.0" text="Female" />
       <TableView fx:id="tblvwMale" layoutX="32.0" layoutY="95.0" prefHeight="146.0" prefWidth="503.0">
         <columns>
-          <TableColumn fx:id="tblclmMaleName" prefWidth="127.0" text="Last Name" />
-            <TableColumn minWidth="0.0" prefWidth="111.0" text="First Name" />
-            <TableColumn prefWidth="84.0" text="Gender" />
-          <TableColumn fx:id="tblclmMaleID" prefWidth="74.0" text="ID #" />
-            <TableColumn fx:id="tblclmMaleTime" minWidth="0.0" prefWidth="106.0" text="Time" />
+          <TableColumn fx:id="numberMale" prefWidth="74.0" text="ID #" />
+          <TableColumn fx:id="LastNameMale" prefWidth="127.0" text="Last Name" />
+            <TableColumn fx:id="FirstNameMale" minWidth="0.0" prefWidth="111.0" text="First Name" />
+            <TableColumn fx:id="totalTimeMale" minWidth="0.0" prefWidth="106.0" text="Time" />
+            <TableColumn fx:id="genderMale" prefWidth="84.0" text="Gender" />
         </columns>
       </TableView>
       <TableView fx:id="tblvwFemale" layoutX="28.0" layoutY="341.0" prefHeight="146.0" prefWidth="503.0">
          <columns>
-            <TableColumn fx:id="tblclmMaleName1" prefWidth="127.0" text="Last Name" />
-            <TableColumn minWidth="0.0" prefWidth="111.0" text="First Name" />
-            <TableColumn prefWidth="84.0" text="Gender" />
-            <TableColumn fx:id="tblclmMaleID1" prefWidth="74.0" text="ID #" />
-            <TableColumn fx:id="tblclmMaleTime1" minWidth="0.0" prefWidth="106.0" text="Time" />
+            <TableColumn fx:id="numberFemale" prefWidth="74.0" text="ID #" />
+            <TableColumn fx:id="LastNameFemale" prefWidth="127.0" text="Last Name" />
+            <TableColumn fx:id="FirstNameFemale" minWidth="0.0" prefWidth="111.0" text="First Name" />
+            <TableColumn fx:id="totalTimeFemale" minWidth="0.0" prefWidth="106.0" text="Time" />
+            <TableColumn fx:id="genderFemale" prefWidth="84.0" text="Gender" />
          </columns>
       </TableView>
       <Button fx:id="btnShow" layoutX="448.0" layoutY="23.0" mnemonicParsing="false" onAction="#initialize" text="Show" />
