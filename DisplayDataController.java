@@ -37,13 +37,22 @@ public class DisplayDataController {
 	@FXML
 	private TableColumn<Athlete, String> totalTimeFemale;
 	
-	@FXML
-	private Button btnShow;
-
 	
 	public void initialize(){
-		btnShow.setOnAction(e -> {
 			try {
+				//set cell value / property stuff to post data to the tableView
+				numberMale.setCellValueFactory(new PropertyValueFactory<>("participantID"));
+				FirstNameMale.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+				LastNameMale.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+				genderMale.setCellValueFactory(new PropertyValueFactory<>("gender"));
+				totalTimeMale.setCellValueFactory(new PropertyValueFactory<>("totalTime"));
+				
+				numberFemale.setCellValueFactory(new PropertyValueFactory<>("participantID"));
+				FirstNameFemale.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+				LastNameFemale.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+				genderFemale.setCellValueFactory(new PropertyValueFactory<>("gender"));
+				totalTimeFemale.setCellValueFactory(new PropertyValueFactory<>("totalTime"));
+				
 				//create male priority queue
 				Queue<Athlete> maleQueue = fillQueue("male");
 				//create female priority queue
@@ -56,7 +65,6 @@ public class DisplayDataController {
 			catch (Exception ex){
 				ex.printStackTrace();
 			}
-		});
 	}
 	
 	private Queue<Athlete> fillQueue(String gender){
@@ -91,30 +99,11 @@ public class DisplayDataController {
 	
 	private void displayQueue(Queue<Athlete> athleteQueue, String gender) throws IOException {
 		//sends all the athletes to the GUI table
-		ObservableList<Athlete> athletes = FXCollections.observableArrayList();
-		for (int counter = 0; counter < athletes.size(); counter++) {
-			athletes.add(athleteQueue.poll());
-		}
-		//////////////////////
-		//set cell value / property stuff to post data to the tableView
-		//////////////////////
+		ObservableList<Athlete> athletes = FXCollections.observableArrayList(athleteQueue);
 		if (gender.matches("male")) {
-			numberMale.setCellValueFactory(new PropertyValueFactory<>("participantID"));
-			FirstNameMale.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-			LastNameMale.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-			genderMale.setCellValueFactory(new PropertyValueFactory<>("gender"));
-			totalTimeMale.setCellValueFactory(new PropertyValueFactory<>("totalTime"));
-			
 			tblvwMale.setItems(athletes);
 		}
-		
 		if (gender.matches("female")) {
-			numberFemale.setCellValueFactory(new PropertyValueFactory<>("participantID"));
-			FirstNameFemale.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-			LastNameFemale.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-			genderFemale.setCellValueFactory(new PropertyValueFactory<>("gender"));
-			totalTimeFemale.setCellValueFactory(new PropertyValueFactory<>("totalTime"));
-			
 			tblvwFemale.setItems(athletes);
 		}
 	}

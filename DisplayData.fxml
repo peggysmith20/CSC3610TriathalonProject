@@ -33,6 +33,5 @@
             <TableColumn fx:id="genderFemale" prefWidth="84.0" text="Gender" />
          </columns>
       </TableView>
-      <Button fx:id="btnShow" layoutX="448.0" layoutY="23.0" mnemonicParsing="false" onAction="#initialize" text="Show" />
    </children>
 </AnchorPane>
