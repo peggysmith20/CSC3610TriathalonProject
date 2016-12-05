@@ -1,7 +1,6 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -10,7 +9,7 @@ import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class DisplayDataController {
+public class ResultsViewController {
 	@FXML
 	private TableView<Athlete> tblvwMale;
 	@FXML
