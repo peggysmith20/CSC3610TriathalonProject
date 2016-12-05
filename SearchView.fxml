@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="365.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SearchViewController">
+   <children>
+      <Label fx:id="lblResults" layoutX="212.0" layoutY="14.0" text="Athlete Search">
+         <font>
+            <Font name="Broadway" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="55.0" text="Search by..." />
+      <Label layoutX="59.0" layoutY="82.0" text="Gender" />
+      <Label layoutX="61.0" layoutY="112.0" text="and" />
+      <Label layoutX="59.0" layoutY="207.0" text="Athlete ID" />
+      <Label layoutX="85.0" layoutY="168.0" text="or" />
+      <Label layoutX="61.0" layoutY="132.0" text="Last Name" />
+      <RadioButton fx:id="rbMale" layoutX="127.0" layoutY="81.0" mnemonicParsing="false" text="Male">
+         <toggleGroup>
+            <ToggleGroup fx:id="Gender" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbFemale" layoutX="193.0" layoutY="81.0" mnemonicParsing="false" text="Female" toggleGroup="$Gender" />
+      <TextField fx:id="txtNumber" layoutX="144.0" layoutY="202.0" />
+      <TextField fx:id="txtLName" layoutX="144.0" layoutY="127.0" />
+      <TableView fx:id="tblvw" layoutX="27.0" layoutY="254.0" prefHeight="87.0" prefWidth="503.0">
+         <columns>
+            <TableColumn fx:id="number" prefWidth="74.0" text="ID #" />
+            <TableColumn fx:id="LastName" prefWidth="127.0" text="Last Name" />
+            <TableColumn fx:id="FirstName" minWidth="0.0" prefWidth="111.0" text="First Name" />
+            <TableColumn fx:id="totalTime" minWidth="0.0" prefWidth="106.0" text="Time" />
+            <TableColumn fx:id="gender" prefWidth="84.0" text="Gender" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnSearch" layoutX="467.0" layoutY="202.0" mnemonicParsing="false" text="Search" />
+      <Button fx:id="btnClear" layoutX="386.0" layoutY="202.0" mnemonicParsing="false" text="Clear" />
+   </children>
+</AnchorPane>
