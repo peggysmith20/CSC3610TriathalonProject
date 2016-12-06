@@ -1,14 +1,15 @@
-package Project;
-
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.rmi.server.ExportException;
 import java.util.LinkedHashSet;
 
-public class MainController {
+public class MainWindowController {
 	@FXML
 	private Label lblAthleteInformation;
 	@FXML
@@ -25,8 +26,6 @@ public class MainController {
 	private Label lblBikeTime;
 	@FXML
 	private Label lblSwimTime;
-	@FXML
-	private MenuBar menuMain;
 	@FXML
 	private TextField txtFirstName;
 	@FXML
@@ -50,7 +49,7 @@ public class MainController {
 	@FXML
 	private Button btnSubmit;
 	@FXML
-	private Button btnCalculate;
+	private Button btnClear;
 	@FXML
 	private Label lblErrFName;
 	@FXML
@@ -64,7 +63,13 @@ public class MainController {
 	@FXML
 	private Label lblErrGender;
 	@FXML
-	private MenuItem mnitmClose;
+	private Label lblErrAthleteNumber;
+	@FXML
+	private MenuItem menuitemClose;
+	@FXML
+	private MenuItem menuitemSearch;
+	@FXML
+	private MenuItem menuitemResults;
 
 	public void initialize(){
 		//set red error text to invisible
@@ -74,24 +79,30 @@ public class MainController {
 		lblErrGender.setVisible(false);
 		lblErrRun.setVisible(false);
 		lblErrSwim.setVisible(false);
+		lblErrAthleteNumber.setVisible(false);
 
 		//event handler. activates when btnSubmit is clicked. it takes the input data, creates objects, puts the objects in a set, and sends them to the database
 	    btnSubmit.setOnAction(e -> { //lambda expression simplifies coding
 	    	//create objects
-			Athlete athleteInfo = storeAthlete();
-			Running runTime = storeRunTime();
-			Swimming swimTime = storeSwimTime();
-			Biking bikeTime = storeBikeTime();
-			//validate objects again before storing in set
-			validateObjects(athleteInfo, runTime, swimTime, bikeTime);
+			try {
+				Athlete athleteInfo = storeAthlete();
+				Running runTime = storeRunTime();
+				Swimming swimTime = storeSwimTime();
+				Biking bikeTime = storeBikeTime();
+				//validate objects again before storing in set
+				validateObjects(athleteInfo, runTime, swimTime, bikeTime);
+			}
+			catch (MySQLIntegrityConstraintViolationException ex){
+				displayError(7);
+			}
 		});
 
 		//button launches popup window with race results
-	    btnCalculate.setOnAction(e -> { //lambda expression simplifies coding
+	    menuitemResults.setOnAction(e -> { //lambda expression simplifies coding
 	    	try{
 	    		FXMLLoader loader = new FXMLLoader();
-	    		loader.setLocation(getClass().getResource("DisplayData.fxml"));
-	    		AnchorPane rootLayout = (AnchorPane)loader.load();
+	    		loader.setLocation(getClass().getResource("ResultsView.fxml"));
+	    		AnchorPane rootLayout = loader.load();
 				Scene scene = new Scene(rootLayout);
 				Stage primaryStage = new Stage();
 				primaryStage.setScene(scene);
@@ -100,24 +111,57 @@ public class MainController {
 	    		ex.printStackTrace();
 	    	}
 	    });
+		
+		menuitemSearch.setOnAction(e -> {
+			try{
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(getClass().getResource("SearchView.fxml"));
+				AnchorPane rootLayout = loader.load();
+				Scene scene = new Scene(rootLayout);
+				Stage primaryStage = new Stage();
+				primaryStage.setScene(scene);
+				primaryStage.show();
+			} catch(Exception ex){
+				ex.printStackTrace();
+			}
+		});
+		
+		btnClear.setOnAction(e -> {
+			txtFirstName.clear();
+			txtLastName.clear();
+			txtBikeTime.clear();
+			txtRunTime.clear();
+			txtSwimTime.clear();
+			rbFemale.setSelected(false);
+			rbMale.setSelected(false);
+			txtNumber.clear();
+		});
 
 		//closes application when pressed
-		mnitmClose.setOnAction(e -> {
+		menuitemClose.setOnAction(e -> {
 			System.exit(0);
 		});
 	}
 
 	//method makes sure that objects are ready to be added to the set
-	private void validateObjects(Athlete athleteInfo, Running runTime, Swimming swimTime, Biking bikeTime){
-		if (!(athleteInfo.getFirstName().matches("badjuju")) && runTime.getEndTime() > 0 && swimTime.getEndTime() > 0 && bikeTime.getEndTime() > 0){
-			//create linked hash set to store objects
-			LinkedHashSet<Object> currentAthlete = storeSet(athleteInfo, runTime, swimTime, bikeTime);
-			//temp test
-			for (Object element : currentAthlete){
-				System.out.println(element.toString());
+	private void validateObjects(Athlete athleteInfo, Running runTime, Swimming swimTime, Biking bikeTime) throws MySQLIntegrityConstraintViolationException{
+		try {
+			if (!(athleteInfo.getFirstName().matches("badjuju")) && runTime.getEndTime() > 0 && swimTime.getEndTime() > 0 && bikeTime.getEndTime() > 0) {
+				//create linked hash set to store objects
+				LinkedHashSet<Object> currentAthlete = storeSet(athleteInfo, runTime, swimTime, bikeTime);
+				//temp test
+				for (Object element : currentAthlete) {
+					System.out.println(element.toString());
+				}
+				//if the objects are ready, they are stored then sent to the database
+				sendData(currentAthlete);
 			}
-			//if the objects are ready, they are stored then sent to the database
-			sendData(currentAthlete);
+		}
+		catch (MySQLIntegrityConstraintViolationException ex){
+			displayError(7);
+		}
+		catch (Exception ex){
+			ex.printStackTrace();
 		}
 	}
 
@@ -206,6 +250,7 @@ public class MainController {
 		//errCode = 4: swimming time is invalid
 		//errCode = 5: biking time is invalid
 		//errCode = 6: gender is not chosen
+		//errCode = 7: duplicate key
 	private void displayError(int errCode){
 		switch(errCode){
 			case 1:
@@ -226,11 +271,15 @@ public class MainController {
 			case 6:
 				lblErrGender.setVisible(true);
 				break;
+			case 7:
+				//lblErrAthleteNumber.setVisible(true);
+				System.out.println("Another red text error needs to be put in the gui next to the Athlete Number box saying 'That number is already in use.'");
+				break;
 		}
 	}
 
 	//method to send data to the mysql database
-	private void sendData(LinkedHashSet currentAthlete){
+	private void sendData(LinkedHashSet currentAthlete) throws MySQLIntegrityConstraintViolationException{
 		//create jdbc object
 		try {
 			JDBCTriathalon jdbcObject = new JDBCTriathalon();

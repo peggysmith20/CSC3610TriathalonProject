@@ -1,3 +1,5 @@
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+
 import java.sql.*;
 
 public class JDBCTriathalon {
@@ -29,9 +31,15 @@ public class JDBCTriathalon {
 			return resultSet;
 		}
 	}
+	
+	//additional overloaded method for use when finding single tuple based on gender and last name
+	public ResultSet pullTuple(String genderKey, String lastNameKey) throws SQLException, ClassNotFoundException {
+		ResultSet resultSet = statement.executeQuery("select * from participants where lastName = '" + lastNameKey + "' and gender = '" + genderKey + "'");
+		return resultSet;
+	}
 
 	//used to store a tuple in the db
-	public void pushTuple(String fname, String lname, String gender, String id, Long run, Long swim, Long bike) throws SQLException, ClassNotFoundException {
+	public void pushTuple(String fname, String lname, String gender, String id, Long run, Long swim, Long bike) throws SQLException, ClassNotFoundException, MySQLIntegrityConstraintViolationException {
 		this.statement.executeUpdate("insert into `participants` (`firstName`, `lastName`, `gender`, `id`, `runTime`, `swimTime`, `bikeTime`) values ('" + fname + "', '" + lname + "', '" + gender + "', '" + id + "', " + run + ", " + swim + ", " + bike + ")");
 	}
 }
