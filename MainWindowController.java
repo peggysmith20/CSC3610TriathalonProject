@@ -79,7 +79,7 @@ public class MainWindowController {
 		lblErrGender.setVisible(false);
 		lblErrRun.setVisible(false);
 		lblErrSwim.setVisible(false);
-		//lblErrAthleteNumber.setVisible(false);
+		lblErrAthleteNumber.setVisible(false);
 
 		//event handler. activates when btnSubmit is clicked. it takes the input data, creates objects, puts the objects in a set, and sends them to the database
 	    btnSubmit.setOnAction(e -> { //lambda expression simplifies coding

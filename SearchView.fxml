@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -38,5 +39,8 @@
       </TableView>
       <Button fx:id="btnSearch" layoutX="467.0" layoutY="202.0" mnemonicParsing="false" text="Search" />
       <Button fx:id="btnClear" layoutX="386.0" layoutY="202.0" mnemonicParsing="false" text="Clear" />
+      <Label fx:id="lblErrGender" layoutX="297.0" layoutY="83.0" text="Select Male or Female" textFill="RED" />
+      <Label fx:id="lblErrLName" layoutX="333.0" layoutY="132.0" text="Enter A Last Name" textFill="RED" />
+      <Label fx:id="lblErrAthleteID" layoutX="194.0" layoutY="227.0" text="Numbers Only" textFill="RED" />
    </children>
 </AnchorPane>

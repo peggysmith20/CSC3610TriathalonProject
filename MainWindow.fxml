@@ -47,12 +47,13 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Label fx:id="lblErrRun" layoutX="535.0" layoutY="124.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
-      <Label fx:id="lblErrBike" layoutX="536.0" layoutY="181.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
-      <Label fx:id="lblErrSwim" layoutX="540.0" layoutY="232.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
-      <Label fx:id="lblErrFName" layoutX="133.0" layoutY="124.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
-      <Label fx:id="lblErrLName" layoutX="133.0" layoutY="181.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
-      <Label fx:id="lblErrGender" layoutX="133.0" layoutY="232.0" prefHeight="15.0" prefWidth="112.0" text="Invalid format" textFill="RED" visible="true" />
+      <Label fx:id="lblErrRun" layoutX="523.0" layoutY="124.0" prefHeight="15.0" prefWidth="162.0" text="Enter Time in Seconds" textFill="RED" visible="true" />
+      <Label fx:id="lblErrBike" layoutX="520.0" layoutY="181.0" prefHeight="15.0" prefWidth="153.0" text="Enter Time in Seconds" textFill="RED" visible="true" />
+      <Label fx:id="lblErrSwim" layoutX="520.0" layoutY="232.0" prefHeight="15.0" prefWidth="153.0" text="Enter Time in Seconds" textFill="RED" visible="true" />
+      <Label fx:id="lblErrFName" layoutX="116.0" layoutY="124.0" prefHeight="15.0" prefWidth="187.0" text="Invalid Symbols or Numbers" textFill="RED" visible="true" />
+      <Label fx:id="lblErrLName" layoutX="116.0" layoutY="181.0" prefHeight="15.0" prefWidth="187.0" text="Invalid Symbols or Numbers" textFill="RED" visible="true" />
+      <Label fx:id="lblErrGender" layoutX="118.0" layoutY="232.0" prefHeight="15.0" prefWidth="153.0" text="Select Male or Female" textFill="RED" visible="true" />
       <Button fx:id="btnClear" layoutX="475.0" layoutY="294.0" mnemonicParsing="false" onAction="#initialize" text="Clear" />
+      <Label fx:id="lblErrAthleteNumber" layoutX="133.0" layoutY="287.0" prefHeight="15.0" prefWidth="112.0" text="Numbers Only" textFill="RED" visible="true" />
    </children>
 </Pane>

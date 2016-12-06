@@ -36,8 +36,20 @@ public class SearchViewController {
 	private TableColumn<Athlete, String> gender;
 	@FXML
 	private TableColumn<Athlete, String> totalTime;
+	@FXML
+	private Label lblErrLName;
+	@FXML
+	private Label lblErrAthleteID;
+	@FXML
+	private Label lblErrGender;
 	
 	public void initialize(){
+		//Set red error text to invisible
+		lblErrLName.setVisible(false);
+		lblErrGender.setVisible(false);
+		lblErrAthleteID.setVisible(false);
+		
+		
 		number.setCellValueFactory(new PropertyValueFactory<>("participantID"));
 		FirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 		LastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
